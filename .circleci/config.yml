@@ -1,0 +1,70 @@
+version: 2.1
+
+executors:
+  build-agent:
+    docker:
+      - image: docker.pkg.github.com/department-of-veterans-affairs/lighthouse-di-circleci-java11-image/lighthouse-di-circleci-java11-image:0.0.1
+        auth:
+          username: $GITHUB_USERNAME
+          password: $GITHUB_ACCESS_TOKEN
+
+steps_directory: &steps_directory
+  working_directory: .
+
+jobs:
+  build-and-test:
+    executor: build-agent
+    environment:
+      DOCKER_REGISTRY: va
+
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.gradle" }}
+            - v1-dependencies-
+      - run:
+          name: Build and standup application
+          <<: *steps_directory
+          command: sh ./scripts/build-standup-template.sh
+      - run:
+          name: Lint OpenApi Specification
+          <<: *steps_directory
+          command: sh ./scripts/lint-openapi-spec.sh
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+
+
+  cis-benchmark-tests:
+    executor: build-agent
+    environment:
+      DOCKER_REGISTRY: va
+
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build image
+          <<: *steps_directory
+          command: |
+            ./gradlew docker
+      - run:
+          name: Run cis-benchmark tests
+          <<: *steps_directory
+          command: |
+            cd ..
+            git clone https://github.com/docker/docker-bench-security.git
+            cd docker-bench-security
+            sh docker-bench-security.sh -c container_images -i facility-visit -e check_4_5
+
+workflows:
+  version: 2
+
+  build-test-app:
+    jobs:
+      - build-and-test
+      - cis-benchmark-tests
