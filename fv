@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+set -euo pipefail
+usage() {
+cat<<EOF
+$0 <command> [args]
+EOF
+exit 1
+}
+
+
+URL=http://localhost:8080/v1/facilityvisit/facilityvisits
+
+main() {
+  local command="$1"
+  shift
+  case $command in
+    a*) add $@;;
+    l*) listAll $@;;
+    d*|rm) delete $@;;
+    *) usage "Unkown command: $command"
+  esac
+}
+
+listAll() {
+  curl -s $URL
+}
+
+add() {
+  local n=${1:-}
+  if [ -z "${n:-}" ]
+  then
+    n=$(( 1 + $(listAll | jq .totalItems) ))
+  fi
+  local json
+  json=$(jq --null-input \
+    --arg un "user-$n" \
+    --arg pii "secret-$n" \
+    --arg fn "first-$n" \
+    --arg ln "last-$n" \
+    '{"userName":$un,"pii":$pii,"firstName":$fn,"lastName":$ln}')
+  curl -s \
+    -HContent-Type:application/json \
+    -d "$json" \
+    $URL
+}
+
+delete() {
+  local id=${1:-0}
+  if [[ "${id}" =~ [0-9]+ ]]
+  then
+    local realId
+    realId=$(listAll | jq -r ".items[$id].id")
+    if [ "${realId}" == "null" ]
+    then
+      echo "No item at index $id"
+      exit 1
+    fi
+    id=$realId
+  fi
+  curl -s \
+    -X DELETE \
+    $URL/$id
+}
+
+main $@
