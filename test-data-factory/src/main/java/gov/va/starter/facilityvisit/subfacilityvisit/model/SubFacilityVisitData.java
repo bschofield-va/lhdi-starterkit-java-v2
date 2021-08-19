@@ -23,6 +23,6 @@ public class SubFacilityVisitData {
     @NonNull
     private String visitorIcn;
     @NonNull
-    private String lastName;
+    private String visitedAt;
 
 }

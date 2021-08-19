@@ -7,25 +7,25 @@ import java.util.Arrays;
 
 public class SubFacilityVisitFactory extends NamedDataFactory<SubFacilityVisitData> {
     public SubFacilityVisitFactory() {
-        data.put(DEFAULT_SPEC, new SubFacilityVisitData( "defaultSubId", "defaultSubFacilityId", "defaultSubType", "defaultSubVisitorIcn", "defaultSubLastName"));
+        data.put(DEFAULT_SPEC, new SubFacilityVisitData( "defaultSubId", "defaultSubFacilityId", "defaultSubType", "defaultSubVisitorIcn", "defaultSubVisitedAt"));
         collections.put(DEFAULT_SPEC, Arrays.asList(
-                new SubFacilityVisitData("defaultSubId","defaultSubFacilityId", "defaultSubType", "defaultSubVisitorIcn", "defaultSubLastName"),
-                new SubFacilityVisitData("defaultSubId2","defaultSubFacilityId2", "defaultSubType2", "defaultSubVisitorIcn2", "defaultSubLastName2"),
-                new SubFacilityVisitData("defaultSubId3","defaultSubFacilityId3", "defaultSubType3", "defaultSubVisitorIcn3", "defaultSubLastName3"))
+                new SubFacilityVisitData("defaultSubId","defaultSubFacilityId", "defaultSubType", "defaultSubVisitorIcn", "defaultSubVisitedAt"),
+                new SubFacilityVisitData("defaultSubId2","defaultSubFacilityId2", "defaultSubType2", "defaultSubVisitorIcn2", "defaultSubVisitedAt2"),
+                new SubFacilityVisitData("defaultSubId3","defaultSubFacilityId3", "defaultSubType3", "defaultSubVisitorIcn3", "defaultSubVisitedAt3"))
         );
 
-        data.put("bogus", new SubFacilityVisitData("bogusSubId", "bogusSubFacilityId", "bogusSubType","bogusSubVisitorIcn", "bogusSubLastName"));
+        data.put("bogus", new SubFacilityVisitData("bogusSubId", "bogusSubFacilityId", "bogusSubType","bogusSubVisitorIcn", "bogusSubVisitedAt"));
         collections.put("bogus", Arrays.asList(
-                new SubFacilityVisitData("bogusSubId", "bogusSubFacilityId", "bogusSubType","bogusSubVisitorIcn", "bogusSubLastName"),
-                new SubFacilityVisitData("bogusSubId2", "bogusSubFacilityId2", "bogusSubType2","bogusSubVisitorIcn2", "bogusSubLastName2"),
-                new SubFacilityVisitData("bogusSubId3", "bogusSubFacilityId3", "bogusSubType3","bogusSubVisitorIcn3", "bogusSubLastName3"))
+                new SubFacilityVisitData("bogusSubId", "bogusSubFacilityId", "bogusSubType","bogusSubVisitorIcn", "bogusSubVisitedAt"),
+                new SubFacilityVisitData("bogusSubId2", "bogusSubFacilityId2", "bogusSubType2","bogusSubVisitorIcn2", "bogusSubVisitedAt2"),
+                new SubFacilityVisitData("bogusSubId3", "bogusSubFacilityId3", "bogusSubType3","bogusSubVisitorIcn3", "bogusSubVisitedAt3"))
         );
 
-        data.put("duplicateLastName", new SubFacilityVisitData("dupSubId","dupSubFacilityId", "dupSubType", "dupSubVisitorIcn", "Smith"));
-        collections.put("duplicateLastName", Arrays.asList(
+        data.put("duplicateVisitedAt", new SubFacilityVisitData("dupSubId","dupSubFacilityId", "dupSubType", "dupSubVisitorIcn", "Smith"));
+        collections.put("duplicateVisitedAt", Arrays.asList(
                 new SubFacilityVisitData("dupSubId","dupSubFacilityId", "dupSubType", "dupSubVisitorIcn", "Smith"),
                 new SubFacilityVisitData("dupSubId2","dupSubFacilityId2", "dupSubType2", "dupSubVisitorIcn2", "Smith"),
-                new SubFacilityVisitData("dupSubId3","dupSubFacilityId3", "dupSubType3", "dupSubVisitorIcn3", "dupSubLastName3"))
+                new SubFacilityVisitData("dupSubId3","dupSubFacilityId3", "dupSubType3", "dupSubVisitorIcn3", "dupSubVisitedAt3"))
 
         );
     }

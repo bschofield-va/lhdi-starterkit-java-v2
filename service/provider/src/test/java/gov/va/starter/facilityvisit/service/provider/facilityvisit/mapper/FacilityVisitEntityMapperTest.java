@@ -139,7 +139,7 @@ public class FacilityVisitEntityMapperTest {
    * @return FacilityVisit object
    */
   private FacilityVisit createFacilityVisit(String id) {
-    return new FacilityVisit(id, facilityVisitData.getFacilityId(), facilityVisitData.getType(), facilityVisitData.getVisitorIcn(), facilityVisitData.getLastName());
+    return new FacilityVisit(id, facilityVisitData.getFacilityId(), facilityVisitData.getType(), facilityVisitData.getVisitorIcn(), facilityVisitData.getVisitedAt());
   }
 
   /**
@@ -148,7 +148,7 @@ public class FacilityVisitEntityMapperTest {
    * @return FacilityVisitEntity object
    */
   private FacilityVisitEntity createFacilityVisitEntity() {
-    return new FacilityVisitEntity(facilityVisitData.getId(), facilityVisitData.getFacilityId(), facilityVisitData.getType(), facilityVisitData.getVisitorIcn(), facilityVisitData.getLastName());
+    return new FacilityVisitEntity(facilityVisitData.getId(), facilityVisitData.getFacilityId(), facilityVisitData.getType(), facilityVisitData.getVisitorIcn(), facilityVisitData.getVisitedAt());
   }
 
   /**
@@ -160,7 +160,7 @@ public class FacilityVisitEntityMapperTest {
     assertThat(response.getFacilityId()).isEqualTo(facilityVisitData.getFacilityId());
     assertThat(response.getType()).isEqualTo(facilityVisitData.getType());
     assertThat(response.getVisitorIcn()).isEqualTo(facilityVisitData.getVisitorIcn());
-    assertThat(response.getLastName()).isEqualTo(facilityVisitData.getLastName());
+    assertThat(response.getVisitedAt()).isEqualTo(facilityVisitData.getVisitedAt());
     assertThat(response.getId()).isEqualTo(facilityVisitData.getId());
   }
 
@@ -184,7 +184,7 @@ public class FacilityVisitEntityMapperTest {
     assertThat(response.getFacilityId()).isEqualTo(facilityVisitData.getFacilityId());
     assertThat(response.getType()).isEqualTo(facilityVisitData.getType());
     assertThat(response.getVisitorIcn()).isEqualTo(facilityVisitData.getVisitorIcn());
-    assertThat(response.getLastName()).isEqualTo(facilityVisitData.getLastName());
+    assertThat(response.getVisitedAt()).isEqualTo(facilityVisitData.getVisitedAt());
     if (hasId) {
       assertThat(response.getId()).isEqualTo(facilityVisitData.getId());
     } else {

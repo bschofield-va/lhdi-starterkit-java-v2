@@ -24,7 +24,7 @@ public class SubFacilityVisitFactoryTest {
         assertThat(defaultSubFacilityVisit.getFacilityId()).isEqualTo("defaultSubFacilityId");
         assertThat(defaultSubFacilityVisit.getType()).isEqualTo("defaultSubType");
         assertThat(defaultSubFacilityVisit.getVisitorIcn()).isEqualTo("defaultSubVisitorIcn");
-        assertThat(defaultSubFacilityVisit.getLastName()).isEqualTo("defaultSubLastName");
+        assertThat(defaultSubFacilityVisit.getVisitedAt()).isEqualTo("defaultSubVisitedAt");
     }
 
     @Test
@@ -36,7 +36,7 @@ public class SubFacilityVisitFactoryTest {
         assertThat(defaultSubFacilityVisitCollection.get(0).getFacilityId()).isEqualTo("defaultSubFacilityId");
         assertThat(defaultSubFacilityVisitCollection.get(0).getType()).isEqualTo("defaultSubType");
         assertThat(defaultSubFacilityVisitCollection.get(0).getVisitorIcn()).isEqualTo("defaultSubVisitorIcn");
-        assertThat(defaultSubFacilityVisitCollection.get(0).getLastName()).isEqualTo("defaultSubLastName");
+        assertThat(defaultSubFacilityVisitCollection.get(0).getVisitedAt()).isEqualTo("defaultSubVisitedAt");
     }
 
     @Test
@@ -47,7 +47,7 @@ public class SubFacilityVisitFactoryTest {
         assertThat(defaultSubFacilityVisit.getFacilityId()).isEqualTo("bogusSubFacilityId");
         assertThat(defaultSubFacilityVisit.getType()).isEqualTo("bogusSubType");
         assertThat(defaultSubFacilityVisit.getVisitorIcn()).isEqualTo("bogusSubVisitorIcn");
-        assertThat(defaultSubFacilityVisit.getLastName()).isEqualTo("bogusSubLastName");
+        assertThat(defaultSubFacilityVisit.getVisitedAt()).isEqualTo("bogusSubVisitedAt");
     }
 
     @Test
@@ -59,29 +59,29 @@ public class SubFacilityVisitFactoryTest {
         assertThat(defaultSubFacilityVisitCollection.get(0).getFacilityId()).isEqualTo("bogusSubFacilityId");
         assertThat(defaultSubFacilityVisitCollection.get(0).getType()).isEqualTo("bogusSubType");
         assertThat(defaultSubFacilityVisitCollection.get(0).getVisitorIcn()).isEqualTo("bogusSubVisitorIcn");
-        assertThat(defaultSubFacilityVisitCollection.get(0).getLastName()).isEqualTo("bogusSubLastName");
+        assertThat(defaultSubFacilityVisitCollection.get(0).getVisitedAt()).isEqualTo("bogusSubVisitedAt");
     }
 
     @Test
-    public void testSubFacilityVisitFactoryDupLastNameRecords() {
-        SubFacilityVisitData defaultSubFacilityVisit = dataFactory.createBySpec("duplicateLastName");
+    public void testSubFacilityVisitFactoryDupVisitedAtRecords() {
+        SubFacilityVisitData defaultSubFacilityVisit = dataFactory.createBySpec("duplicateVisitedAt");
 
         assertThat(defaultSubFacilityVisit.getId()).isEqualTo("dupSubId");
         assertThat(defaultSubFacilityVisit.getFacilityId()).isEqualTo("dupSubFacilityId");
         assertThat(defaultSubFacilityVisit.getType()).isEqualTo("dupSubType");
         assertThat(defaultSubFacilityVisit.getVisitorIcn()).isEqualTo("dupSubVisitorIcn");
-        assertThat(defaultSubFacilityVisit.getLastName()).isEqualTo("Smith");
+        assertThat(defaultSubFacilityVisit.getVisitedAt()).isEqualTo("Smith");
     }
 
     @Test
-    public void testSubFacilityVisitFactoryDupLastNameCollection() {
-        List<SubFacilityVisitData> defaultSubFacilityVisitCollection = dataFactory.createCollectionBySpec("duplicateLastName");
+    public void testSubFacilityVisitFactoryDupVisitedAtCollection() {
+        List<SubFacilityVisitData> defaultSubFacilityVisitCollection = dataFactory.createCollectionBySpec("duplicateVisitedAt");
 
         assertThat(defaultSubFacilityVisitCollection.size()).isEqualTo(3);
         assertThat(defaultSubFacilityVisitCollection.get(0).getId()).isEqualTo("dupSubId");
         assertThat(defaultSubFacilityVisitCollection.get(0).getFacilityId()).isEqualTo("dupSubFacilityId");
         assertThat(defaultSubFacilityVisitCollection.get(0).getType()).isEqualTo("dupSubType");
         assertThat(defaultSubFacilityVisitCollection.get(0).getVisitorIcn()).isEqualTo("dupSubVisitorIcn");
-        assertThat(defaultSubFacilityVisitCollection.get(0).getLastName()).isEqualTo("Smith");
+        assertThat(defaultSubFacilityVisitCollection.get(0).getVisitedAt()).isEqualTo("Smith");
     }
 }

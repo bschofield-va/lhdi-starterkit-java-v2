@@ -30,6 +30,6 @@ public class FacilityVisitData {
     @NonNull
     private String visitorIcn;
     @NonNull
-    private String lastName;
+    private String visitedAt;
 
 }

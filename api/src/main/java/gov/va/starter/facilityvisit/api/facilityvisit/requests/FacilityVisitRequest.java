@@ -29,7 +29,7 @@ public class FacilityVisitRequest {
 
   @NonNull
   @Schema(description = "Family name of the FacilityVisit holder", example = "Van Pelt")
-  private final String lastName;
+  private final String visitedAt;
 
   /**
    * Create object from json.
@@ -37,18 +37,18 @@ public class FacilityVisitRequest {
    * @param facilityId ID of FacilityVisit holder
    * @param type private information of FacilityVisit holder
    * @param visitorIcn firstname of FacilityVisit holder
-   * @param lastName lastname of FacilityVisit holder
+   * @param visitedAt lastname of FacilityVisit holder
    */
   @JsonCreator
   public FacilityVisitRequest(
       @NonNull @JsonProperty("facilityId") String facilityId,
       @NonNull @JsonProperty("type") String type,
       @NonNull @JsonProperty("visitorIcn") String visitorIcn,
-      @NonNull @JsonProperty("lastName") String lastName) {
+      @NonNull @JsonProperty("visitedAt") String visitedAt) {
 
     this.facilityId = facilityId;
     this.type = type;
     this.visitorIcn = visitorIcn;
-    this.lastName = lastName;
+    this.visitedAt = visitedAt;
   }
 }

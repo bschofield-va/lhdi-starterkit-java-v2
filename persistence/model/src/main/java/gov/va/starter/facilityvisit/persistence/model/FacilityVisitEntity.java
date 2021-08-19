@@ -36,5 +36,5 @@ public class FacilityVisitEntity {
   @NonNull private String facilityId;
   @NonNull private String type;
   @NonNull private String visitorIcn;
-  @NonNull private String lastName;
+  @NonNull private String visitedAt;
 }

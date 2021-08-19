@@ -42,14 +42,14 @@ public class FacilityVisitServiceImpl implements FacilityVisitService {
   /**
    * find all resources matching last name.
    *
-   * @param lastName criteria for match
+   * @param visitedAt criteria for match
    * @return list of matching FacilityVisit records
    */
   @Override
-  public Page<FacilityVisit> findByLastName(String lastName, Pageable pageable) {
-    log.info("looking up by lastname of:{}", lastName);
+  public Page<FacilityVisit> findByVisitedAt(String visitedAt, Pageable pageable) {
+    log.info("looking up by lastname of:{}", visitedAt);
     Page<FacilityVisit> responseList =
-        mapper.toModelPage(repository.findByLastName(lastName, pageable));
+        mapper.toModelPage(repository.findByVisitedAt(visitedAt, pageable));
     log.info("Response list size:{}", responseList.getContent().size());
     return responseList;
   }

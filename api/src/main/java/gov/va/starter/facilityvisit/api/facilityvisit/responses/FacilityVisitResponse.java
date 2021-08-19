@@ -33,6 +33,6 @@ public class FacilityVisitResponse {
 
   @NonNull
   @Schema(description = "Family name of the FacilityVisit holder", example = "van Pelt")
-  private final String lastName;
+  private final String visitedAt;
 
 }

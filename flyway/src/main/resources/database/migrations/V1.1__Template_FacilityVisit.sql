@@ -3,5 +3,5 @@ CREATE TABLE facilityvisit.facilityvisit (
     facilityId VARCHAR NOT NULL,
     type VARCHAR NOT NULL,
     visitorIcn VARCHAR NOT NULL,
-    lastName VARCHAR NOT NULL
+    visitedAt VARCHAR NOT NULL
 );

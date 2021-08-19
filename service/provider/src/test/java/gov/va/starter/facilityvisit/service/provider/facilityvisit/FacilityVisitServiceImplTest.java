@@ -72,7 +72,7 @@ public class FacilityVisitServiceImplTest {
             .facilityId(defaultFacilityVisitData.getFacilityId())
             .type(defaultFacilityVisitData.getType())
             .visitorIcn(defaultFacilityVisitData.getVisitorIcn())
-            .lastName(defaultFacilityVisitData.getLastName())
+            .visitedAt(defaultFacilityVisitData.getVisitedAt())
             .build();
     entity = real.toEntity(resource);
     added =
@@ -81,7 +81,7 @@ public class FacilityVisitServiceImplTest {
             entity.getFacilityId(),
             entity.getType(),
             entity.getVisitorIcn(),
-            entity.getLastName());
+            entity.getVisitedAt());
     output = real.toModel(added);
     optionalEntity = Optional.of(entity);
     optionalAdded = Optional.of(added);
@@ -162,12 +162,12 @@ public class FacilityVisitServiceImplTest {
   }
 
   @Test
-  public void findByLastNameTest() {
+  public void findByVisitedAtTest() {
 
     createListMapperStubs();
-    Mockito.when(repository.findByLastName(defaultFacilityVisitData.getLastName(), pageable)).thenReturn(entityPage);
+    Mockito.when(repository.findByVisitedAt(defaultFacilityVisitData.getVisitedAt(), pageable)).thenReturn(entityPage);
 
-    Page<FacilityVisit> response = manager.findByLastName(defaultFacilityVisitData.getLastName(), pageable);
+    Page<FacilityVisit> response = manager.findByVisitedAt(defaultFacilityVisitData.getVisitedAt(), pageable);
 
     Assertions.assertThat(response.getContent().isEmpty()).isFalse();
     Assertions.assertThat(response.getContent().get(0).getVisitorIcn())
@@ -176,12 +176,12 @@ public class FacilityVisitServiceImplTest {
   }
 
   @Test
-  public void findByLastNameFailedTest() {
+  public void findByVisitedAtFailedTest() {
 
     createEmptyListMapperStubs();
-    Mockito.when(repository.findByLastName(bogusFacilityVisitData.getLastName(), pageable)).thenReturn(emptyEntityPage);
+    Mockito.when(repository.findByVisitedAt(bogusFacilityVisitData.getVisitedAt(), pageable)).thenReturn(emptyEntityPage);
 
-    Page<FacilityVisit> response = manager.findByLastName(bogusFacilityVisitData.getLastName(), pageable);
+    Page<FacilityVisit> response = manager.findByVisitedAt(bogusFacilityVisitData.getVisitedAt(), pageable);
 
     Assertions.assertThat(response.getContent().isEmpty()).isTrue();
   }
