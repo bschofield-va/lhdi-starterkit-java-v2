@@ -26,6 +26,12 @@ Field name changes very easy.
 sed -i 's/lastName/visitedAt/g' $(git grep -l lastName)
 sed -i 's/LastName/VisitedAt/g' $(git grep -l LastName)
 ```
+---
+When refactoring, I choose poorly on renaming my fields. 
+I chose to rename `firstName` to `visitorIcn` and `lastName` to `visitedAt`. 
+This is a poor choice because `lastName` was set up as secondary search criteria.
+I ended up doing a little additional refactoring to change the secondary search criteria to `visitorIcn` (i.e. `firstName`).
+Perhaps there is a better way to communicate this? If nothing else, comment on `lastName` field?
 
 ## Generated Code Review
 Deprecated Jackson annotation
