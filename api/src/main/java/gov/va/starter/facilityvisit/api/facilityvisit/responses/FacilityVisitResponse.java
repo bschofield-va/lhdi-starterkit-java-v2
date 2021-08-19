@@ -25,7 +25,7 @@ public class FacilityVisitResponse {
 
   @NonNull
   @Schema(description = "Representative PII of the FacilityVisit holder", example = "123-456-7890")
-  private final String pii;
+  private final String type;
 
   @NonNull
   @Schema(description = "Given name of the FacilityVisit holder", example = "Lucy")

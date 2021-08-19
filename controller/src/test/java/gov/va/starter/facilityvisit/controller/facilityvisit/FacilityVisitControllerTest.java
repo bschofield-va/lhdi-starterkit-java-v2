@@ -78,13 +78,13 @@ public class FacilityVisitControllerTest {
     defaultFacilityVisit = facilityVisitFactory.createBySpec(DEFAULT_SPEC);
     bogusFacilityVisit = facilityVisitFactory.createBySpec("bogus");
 
-    request = new FacilityVisitRequest(defaultFacilityVisit.getFacilityId(), defaultFacilityVisit.getPii(), defaultFacilityVisit.getVisitorIcn(), defaultFacilityVisit.getLastName());
+    request = new FacilityVisitRequest(defaultFacilityVisit.getFacilityId(), defaultFacilityVisit.getType(), defaultFacilityVisit.getVisitorIcn(), defaultFacilityVisit.getLastName());
     resource = real.toModel(request);
     output =
         new FacilityVisit(
             defaultFacilityVisit.getId(),
             resource.getFacilityId(),
-            resource.getPii(),
+            resource.getType(),
             resource.getVisitorIcn(),
             resource.getLastName());
     response = real.toFacilityVisitResponse(output);
@@ -142,7 +142,7 @@ public class FacilityVisitControllerTest {
 
     assertThat(response.getStatusCodeValue()).isEqualTo(201);
     assertThat(response.getBody()).isNotNull();
-    assertThat(response.getBody().getPii()).isEqualTo(defaultFacilityVisit.getPii());
+    assertThat(response.getBody().getType()).isEqualTo(defaultFacilityVisit.getType());
     assertThat(response.getBody().getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 
@@ -156,7 +156,7 @@ public class FacilityVisitControllerTest {
         controller.findEntityById(defaultFacilityVisit.getId());
 
     assertThat(response.getStatusCodeValue()).isEqualTo(200);
-    assertThat(response.getBody().getPii()).isEqualTo(defaultFacilityVisit.getPii());
+    assertThat(response.getBody().getType()).isEqualTo(defaultFacilityVisit.getType());
     assertThat(response.getBody().getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 
@@ -211,7 +211,7 @@ public class FacilityVisitControllerTest {
         controller.updateEntityById(defaultFacilityVisit.getId(), request);
 
     assertThat(response.getStatusCodeValue()).isEqualTo(200);
-    assertThat(response.getBody().getPii()).isEqualTo(defaultFacilityVisit.getPii());
+    assertThat(response.getBody().getType()).isEqualTo(defaultFacilityVisit.getType());
     assertThat(response.getBody().getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 
@@ -239,7 +239,7 @@ public class FacilityVisitControllerTest {
         controller.deleteEntityById(defaultFacilityVisit.getId());
 
     assertThat(response.getStatusCodeValue()).isEqualTo(200);
-    assertThat(response.getBody().getPii()).isEqualTo(defaultFacilityVisit.getPii());
+    assertThat(response.getBody().getType()).isEqualTo(defaultFacilityVisit.getType());
     assertThat(response.getBody().getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 
@@ -263,7 +263,7 @@ public class FacilityVisitControllerTest {
    */
   protected void verifyFacilityVisit(FacilityVisit resource) {
     assertThat(resource.getFacilityId().equals(defaultFacilityVisit.getFacilityId()));
-    assertThat(resource.getPii().equals(defaultFacilityVisit.getPii()));
+    assertThat(resource.getType().equals(defaultFacilityVisit.getType()));
     assertThat(resource.getVisitorIcn().equals(defaultFacilityVisit.getVisitorIcn()));
     assertThat(resource.getLastName().equals(defaultFacilityVisit.getLastName()));
     assertThat(resource.getId()).isNotEqualTo(defaultFacilityVisit.getId());
@@ -276,7 +276,7 @@ public class FacilityVisitControllerTest {
    */
   private void verifyFacilityVisitResponse(FacilityVisitResponse response) {
     assertThat(response.getFacilityId().equals(defaultFacilityVisit.getFacilityId()));
-    assertThat(response.getPii().equals(defaultFacilityVisit.getPii()));
+    assertThat(response.getType().equals(defaultFacilityVisit.getType()));
     assertThat(response.getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 }

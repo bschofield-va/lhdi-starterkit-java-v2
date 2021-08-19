@@ -21,7 +21,7 @@ public class FacilityVisitRequest {
 
   @NonNull
   @Schema(description = "Representative PII of the FacilityVisit holder", example = "123-45-6789")
-  private final String pii;
+  private final String type;
 
   @NonNull
   @Schema(description = "Given name of the FacilityVisit holder", example = "Lucille")
@@ -35,19 +35,19 @@ public class FacilityVisitRequest {
    * Create object from json.
    *
    * @param facilityId ID of FacilityVisit holder
-   * @param pii private information of FacilityVisit holder
+   * @param type private information of FacilityVisit holder
    * @param visitorIcn firstname of FacilityVisit holder
    * @param lastName lastname of FacilityVisit holder
    */
   @JsonCreator
   public FacilityVisitRequest(
       @NonNull @JsonProperty("facilityId") String facilityId,
-      @NonNull @JsonProperty("pii") String pii,
+      @NonNull @JsonProperty("type") String type,
       @NonNull @JsonProperty("visitorIcn") String visitorIcn,
       @NonNull @JsonProperty("lastName") String lastName) {
 
     this.facilityId = facilityId;
-    this.pii = pii;
+    this.type = type;
     this.visitorIcn = visitorIcn;
     this.lastName = lastName;
   }

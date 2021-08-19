@@ -48,10 +48,10 @@ add() {
   local json
   json=$(jq --null-input \
     --arg fid "fid-$n" \
-    --arg pii "secret-$n" \
+    --arg type "type-$n" \
     --arg fn "icn-$n" \
     --arg ln "last-$n" \
-    '{"facilityId":$fid,"pii":$pii,"visitorIcn":$fn,"lastName":$ln}')
+    '{"facilityId":$fid,"type":$type,"visitorIcn":$fn,"lastName":$ln}')
   curl -s \
     -HContent-Type:application/json \
     -d "$json" \

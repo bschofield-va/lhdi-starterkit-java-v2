@@ -26,7 +26,7 @@ public class FacilityVisit {
   @NonNull
   private String facilityId;
   @NonNull
-  private String pii;
+  private String type;
   @NonNull
   private String visitorIcn;
   @NonNull

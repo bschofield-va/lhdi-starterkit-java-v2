@@ -70,7 +70,7 @@ public class FacilityVisitServiceImplTest {
     resource =
         FacilityVisit.builder()
             .facilityId(defaultFacilityVisitData.getFacilityId())
-            .pii(defaultFacilityVisitData.getPii())
+            .type(defaultFacilityVisitData.getType())
             .visitorIcn(defaultFacilityVisitData.getVisitorIcn())
             .lastName(defaultFacilityVisitData.getLastName())
             .build();
@@ -79,7 +79,7 @@ public class FacilityVisitServiceImplTest {
         new FacilityVisitEntity(
             defaultFacilityVisitData.getId(),
             entity.getFacilityId(),
-            entity.getPii(),
+            entity.getType(),
             entity.getVisitorIcn(),
             entity.getLastName());
     output = real.toModel(added);
