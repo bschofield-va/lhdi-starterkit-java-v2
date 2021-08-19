@@ -47,7 +47,7 @@ Optimize Lombok annotations
 @EqualsAndHashCode
 @Builder
 ```
-should just be
+should just be (unless you specifically do not want `toString()`)
 ```
 @Data
 @NoArgsConstructor
