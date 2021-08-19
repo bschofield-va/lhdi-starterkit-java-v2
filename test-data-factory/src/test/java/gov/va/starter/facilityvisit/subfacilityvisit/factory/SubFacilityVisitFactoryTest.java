@@ -64,7 +64,7 @@ public class SubFacilityVisitFactoryTest {
 
     @Test
     public void testSubFacilityVisitFactoryDupVisitedAtRecords() {
-        SubFacilityVisitData defaultSubFacilityVisit = dataFactory.createBySpec("duplicateVisitedAt");
+        SubFacilityVisitData defaultSubFacilityVisit = dataFactory.createBySpec("duplicateVisitorIcn");
 
         assertThat(defaultSubFacilityVisit.getId()).isEqualTo("dupSubId");
         assertThat(defaultSubFacilityVisit.getFacilityId()).isEqualTo("dupSubFacilityId");
@@ -75,7 +75,7 @@ public class SubFacilityVisitFactoryTest {
 
     @Test
     public void testSubFacilityVisitFactoryDupVisitedAtCollection() {
-        List<SubFacilityVisitData> defaultSubFacilityVisitCollection = dataFactory.createCollectionBySpec("duplicateVisitedAt");
+        List<SubFacilityVisitData> defaultSubFacilityVisitCollection = dataFactory.createCollectionBySpec("duplicateVisitorIcn");
 
         assertThat(defaultSubFacilityVisitCollection.size()).isEqualTo(3);
         assertThat(defaultSubFacilityVisitCollection.get(0).getId()).isEqualTo("dupSubId");

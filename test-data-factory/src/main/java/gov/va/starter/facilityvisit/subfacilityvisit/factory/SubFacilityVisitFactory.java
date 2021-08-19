@@ -21,8 +21,8 @@ public class SubFacilityVisitFactory extends NamedDataFactory<SubFacilityVisitDa
                 new SubFacilityVisitData("bogusSubId3", "bogusSubFacilityId3", "bogusSubType3","bogusSubVisitorIcn3", "bogusSubVisitedAt3"))
         );
 
-        data.put("duplicateVisitedAt", new SubFacilityVisitData("dupSubId","dupSubFacilityId", "dupSubType", "dupSubVisitorIcn", "Smith"));
-        collections.put("duplicateVisitedAt", Arrays.asList(
+        data.put("duplicateVisitorIcn", new SubFacilityVisitData("dupSubId","dupSubFacilityId", "dupSubType", "dupSubVisitorIcn", "Smith"));
+        collections.put("duplicateVisitorIcn", Arrays.asList(
                 new SubFacilityVisitData("dupSubId","dupSubFacilityId", "dupSubType", "dupSubVisitorIcn", "Smith"),
                 new SubFacilityVisitData("dupSubId2","dupSubFacilityId2", "dupSubType2", "dupSubVisitorIcn2", "Smith"),
                 new SubFacilityVisitData("dupSubId3","dupSubFacilityId3", "dupSubType3", "dupSubVisitorIcn3", "dupSubVisitedAt3"))

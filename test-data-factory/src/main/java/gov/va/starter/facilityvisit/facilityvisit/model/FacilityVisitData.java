@@ -2,6 +2,7 @@ package gov.va.starter.facilityvisit.facilityvisit.model;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import java.time.ZonedDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -30,6 +31,6 @@ public class FacilityVisitData {
     @NonNull
     private String visitorIcn;
     @NonNull
-    private String visitedAt;
+    private ZonedDateTime visitedAt;
 
 }

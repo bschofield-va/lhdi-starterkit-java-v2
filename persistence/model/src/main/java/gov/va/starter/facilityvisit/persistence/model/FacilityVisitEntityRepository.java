@@ -12,5 +12,5 @@ public interface FacilityVisitEntityRepository
 
   Optional<FacilityVisitEntity> findByFacilityId(String facilityId);
 
-  Page<FacilityVisitEntity> findByVisitedAt(String visitedAt, Pageable pageable);
+  Page<FacilityVisitEntity> findByVisitorIcn(String visitorIcn, Pageable pageable);
 }

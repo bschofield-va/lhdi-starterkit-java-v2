@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.ZonedDateTime;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
@@ -29,7 +30,7 @@ public class FacilityVisitRequest {
 
   @NonNull
   @Schema(description = "Family name of the FacilityVisit holder", example = "Van Pelt")
-  private final String visitedAt;
+  private final ZonedDateTime visitedAt;
 
   /**
    * Create object from json.
@@ -44,7 +45,7 @@ public class FacilityVisitRequest {
       @NonNull @JsonProperty("facilityId") String facilityId,
       @NonNull @JsonProperty("type") String type,
       @NonNull @JsonProperty("visitorIcn") String visitorIcn,
-      @NonNull @JsonProperty("visitedAt") String visitedAt) {
+      @NonNull @JsonProperty("visitedAt") ZonedDateTime visitedAt) {
 
     this.facilityId = facilityId;
     this.type = type;

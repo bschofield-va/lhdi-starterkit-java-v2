@@ -12,7 +12,7 @@ public interface FacilityVisitService {
   FacilityVisit add(FacilityVisit resource)
       throws RequestValidationException;
 
-  Page<FacilityVisit> findByVisitedAt(String visitedAt, Pageable pageable);
+  Page<FacilityVisit> findByVisitorIcn(String visitorIcn, Pageable pageable);
 
   Optional<FacilityVisit> findByFacilityId(String facilityId);
 

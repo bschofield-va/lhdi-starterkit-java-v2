@@ -29,7 +29,7 @@ public class FacilityVisitEntityRepositoryTest {
   private FacilityVisitEntity entity;
 
   private FacilityVisitFactory facilityVisitFactory = new FacilityVisitFactory();
-  private List<FacilityVisitData> defaultFacilityVisitDataCollection = facilityVisitFactory.createCollectionBySpec("duplicateVisitedAt");
+  private List<FacilityVisitData> defaultFacilityVisitDataCollection = facilityVisitFactory.createCollectionBySpec("duplicateVisitorIcn");
 
   @BeforeEach
   public void setup() {
@@ -68,22 +68,22 @@ public class FacilityVisitEntityRepositoryTest {
   }
 
   @Test
-  public void testFindByVisitedAt() {
+  public void testfindByVisitorIcn() {
     populate();
 
     Page<FacilityVisitEntity> retrievedSmiths =
-        modelEntityRepository.findByVisitedAt(defaultFacilityVisitDataCollection.get(0).getVisitedAt(), Pageable.unpaged());
+        modelEntityRepository.findByVisitorIcn(defaultFacilityVisitDataCollection.get(0).getVisitorIcn(), Pageable.unpaged());
 
     assertThat(retrievedSmiths.getContent().size()).isEqualTo(2);
   }
 
   @Test
-  public void testFindByVisitedAtPaged() {
+  public void testfindByVisitorIcnPaged() {
     populate();
 
     Pageable pageable = PageRequest.of(0, 1);
     Page<FacilityVisitEntity> retrievedSmiths =
-        modelEntityRepository.findByVisitedAt(defaultFacilityVisitDataCollection.get(0).getVisitedAt(), pageable);
+        modelEntityRepository.findByVisitorIcn(defaultFacilityVisitDataCollection.get(0).getVisitorIcn(), pageable);
 
     assertThat(retrievedSmiths.getContent().size()).isEqualTo(1);
   }
@@ -92,15 +92,15 @@ public class FacilityVisitEntityRepositoryTest {
   public void testUpdateRecord() {
     final String newName = "Contrary";
     FacilityVisitEntity saved = modelEntityRepository.save(entity);
-    saved.setVisitedAt(newName);
+    saved.setVisitorIcn(newName);
 
     FacilityVisitEntity updated = modelEntityRepository.save(saved);
 
     Page<FacilityVisitEntity> retrievedSmiths =
-        modelEntityRepository.findByVisitedAt(defaultFacilityVisitDataCollection.get(0).getVisitedAt(), Pageable.unpaged());
+        modelEntityRepository.findByVisitorIcn(defaultFacilityVisitDataCollection.get(0).getVisitorIcn(), Pageable.unpaged());
     assertThat(retrievedSmiths.getContent().size()).isEqualTo(0);
     Page<FacilityVisitEntity> retrievedContrarians =
-        modelEntityRepository.findByVisitedAt(newName, Pageable.unpaged());
+        modelEntityRepository.findByVisitorIcn(newName, Pageable.unpaged());
     assertThat(retrievedContrarians.getContent().size()).isEqualTo(1);
   }
 
@@ -111,7 +111,7 @@ public class FacilityVisitEntityRepositoryTest {
     modelEntityRepository.deleteById(saved.getId());
 
     Page<FacilityVisitEntity> retrievedSmiths =
-        modelEntityRepository.findByVisitedAt(defaultFacilityVisitDataCollection.get(0).getVisitedAt(), Pageable.unpaged());
+        modelEntityRepository.findByVisitorIcn(defaultFacilityVisitDataCollection.get(0).getVisitorIcn(), Pageable.unpaged());
     assertThat(retrievedSmiths.getContent().size()).isEqualTo(1);
   }
 

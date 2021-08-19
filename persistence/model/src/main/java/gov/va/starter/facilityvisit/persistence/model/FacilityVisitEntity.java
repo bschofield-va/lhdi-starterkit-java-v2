@@ -1,5 +1,6 @@
 package gov.va.starter.facilityvisit.persistence.model;
 
+import java.time.ZonedDateTime;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -36,5 +37,5 @@ public class FacilityVisitEntity {
   @NonNull private String facilityId;
   @NonNull private String type;
   @NonNull private String visitorIcn;
-  @NonNull private String visitedAt;
+  @NonNull private ZonedDateTime visitedAt;
 }

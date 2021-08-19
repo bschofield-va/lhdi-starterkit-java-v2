@@ -165,9 +165,9 @@ public class FacilityVisitServiceImplTest {
   public void findByVisitedAtTest() {
 
     createListMapperStubs();
-    Mockito.when(repository.findByVisitedAt(defaultFacilityVisitData.getVisitedAt(), pageable)).thenReturn(entityPage);
+    Mockito.when(repository.findByVisitorIcn(defaultFacilityVisitData.getVisitorIcn(), pageable)).thenReturn(entityPage);
 
-    Page<FacilityVisit> response = manager.findByVisitedAt(defaultFacilityVisitData.getVisitedAt(), pageable);
+    Page<FacilityVisit> response = manager.findByVisitorIcn(defaultFacilityVisitData.getVisitorIcn(), pageable);
 
     Assertions.assertThat(response.getContent().isEmpty()).isFalse();
     Assertions.assertThat(response.getContent().get(0).getVisitorIcn())
@@ -179,9 +179,9 @@ public class FacilityVisitServiceImplTest {
   public void findByVisitedAtFailedTest() {
 
     createEmptyListMapperStubs();
-    Mockito.when(repository.findByVisitedAt(bogusFacilityVisitData.getVisitedAt(), pageable)).thenReturn(emptyEntityPage);
+    Mockito.when(repository.findByVisitorIcn(bogusFacilityVisitData.getVisitorIcn(), pageable)).thenReturn(emptyEntityPage);
 
-    Page<FacilityVisit> response = manager.findByVisitedAt(bogusFacilityVisitData.getVisitedAt(), pageable);
+    Page<FacilityVisit> response = manager.findByVisitorIcn(bogusFacilityVisitData.getVisitorIcn(), pageable);
 
     Assertions.assertThat(response.getContent().isEmpty()).isTrue();
   }
