@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface FacilityVisitEntityRepository
     extends PagingAndSortingRepository<FacilityVisitEntity, String> {
 
-  Optional<FacilityVisitEntity> findByUserName(String userName);
+  Optional<FacilityVisitEntity> findByFacilityId(String facilityId);
 
   Page<FacilityVisitEntity> findByLastName(String lastName, Pageable pageable);
 }

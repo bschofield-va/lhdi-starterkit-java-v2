@@ -33,7 +33,7 @@ public class FacilityVisitEntity {
   @XmlAttribute
   private String id;
 
-  @NonNull private String userName;
+  @NonNull private String facilityId;
   @NonNull private String pii;
   @NonNull private String firstName;
   @NonNull private String lastName;

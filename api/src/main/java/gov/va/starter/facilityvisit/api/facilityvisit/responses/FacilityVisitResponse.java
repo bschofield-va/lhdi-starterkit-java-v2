@@ -20,8 +20,8 @@ public class FacilityVisitResponse {
   private final String id;
 
   @NonNull
-  @Schema(description = "username of the FacilityVisit holder", example = "lvanpelt")
-  private final String userName;
+  @Schema(description = "Facility ID of the FacilityVisit holder", example = "lvanpelt")
+  private final String facilityId;
 
   @NonNull
   @Schema(description = "Representative PII of the FacilityVisit holder", example = "123-456-7890")

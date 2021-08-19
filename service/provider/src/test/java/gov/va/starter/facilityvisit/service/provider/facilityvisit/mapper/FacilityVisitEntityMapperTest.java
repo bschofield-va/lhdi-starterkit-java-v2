@@ -139,7 +139,7 @@ public class FacilityVisitEntityMapperTest {
    * @return FacilityVisit object
    */
   private FacilityVisit createFacilityVisit(String id) {
-    return new FacilityVisit(id, facilityVisitData.getUserName(), facilityVisitData.getPii(), facilityVisitData.getFirstName(), facilityVisitData.getLastName());
+    return new FacilityVisit(id, facilityVisitData.getFacilityId(), facilityVisitData.getPii(), facilityVisitData.getFirstName(), facilityVisitData.getLastName());
   }
 
   /**
@@ -148,7 +148,7 @@ public class FacilityVisitEntityMapperTest {
    * @return FacilityVisitEntity object
    */
   private FacilityVisitEntity createFacilityVisitEntity() {
-    return new FacilityVisitEntity(facilityVisitData.getId(), facilityVisitData.getUserName(), facilityVisitData.getPii(), facilityVisitData.getFirstName(), facilityVisitData.getLastName());
+    return new FacilityVisitEntity(facilityVisitData.getId(), facilityVisitData.getFacilityId(), facilityVisitData.getPii(), facilityVisitData.getFirstName(), facilityVisitData.getLastName());
   }
 
   /**
@@ -157,7 +157,7 @@ public class FacilityVisitEntityMapperTest {
    * @param response the object to validate
    */
   protected void verifyFacilityVisit(FacilityVisit response) {
-    assertThat(response.getUserName()).isEqualTo(facilityVisitData.getUserName());
+    assertThat(response.getFacilityId()).isEqualTo(facilityVisitData.getFacilityId());
     assertThat(response.getPii()).isEqualTo(facilityVisitData.getPii());
     assertThat(response.getFirstName()).isEqualTo(facilityVisitData.getFirstName());
     assertThat(response.getLastName()).isEqualTo(facilityVisitData.getLastName());
@@ -181,7 +181,7 @@ public class FacilityVisitEntityMapperTest {
   // CSOFF: LineLength
   private void verifyFacilityVisitEntity(FacilityVisitEntity response, boolean hasId) {
     // CSON: LineLength
-    assertThat(response.getUserName()).isEqualTo(facilityVisitData.getUserName());
+    assertThat(response.getFacilityId()).isEqualTo(facilityVisitData.getFacilityId());
     assertThat(response.getPii()).isEqualTo(facilityVisitData.getPii());
     assertThat(response.getFirstName()).isEqualTo(facilityVisitData.getFirstName());
     assertThat(response.getLastName()).isEqualTo(facilityVisitData.getLastName());

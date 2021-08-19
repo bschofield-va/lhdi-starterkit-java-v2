@@ -57,13 +57,13 @@ public class FacilityVisitServiceImpl implements FacilityVisitService {
   /**
    * find resource by user name.
    *
-   * @param userName username criteria to match
+   * @param facilityId username criteria to match
    * @return matching record, or null
    */
   @Override
-  public Optional<FacilityVisit> findByUserName(String userName) {
-    log.info("looking up by username:{}", userName);
-    Optional<FacilityVisit> resource = mapper.toModel(repository.findByUserName(userName));
+  public Optional<FacilityVisit> findByFacilityId(String facilityId) {
+    log.info("looking up by username:{}", facilityId);
+    Optional<FacilityVisit> resource = mapper.toModel(repository.findByFacilityId(facilityId));
     return resource;
   }
 

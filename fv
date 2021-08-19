@@ -3,6 +3,19 @@ set -euo pipefail
 usage() {
 cat<<EOF
 $0 <command> [args]
+
+Commands:
+add [suffix]
+  Generate and add a new item
+
+rm|delete [uuid|index]
+  Remove a specific record by ID or index.
+  If neither UUID or index is specified, the first item is removed.
+
+ls|list
+  List all items
+
+${1:-}
 EOF
 exit 1
 }
@@ -11,13 +24,14 @@ exit 1
 URL=http://localhost:8080/v1/facilityvisit/facilityvisits
 
 main() {
-  local command="$1"
-  shift
+  local command="${1:-none}"
+  shift || true
   case $command in
     a*) add $@;;
     l*) listAll $@;;
     d*|rm) delete $@;;
-    *) usage "Unkown command: $command"
+    none) usage "No command specified";;
+    *) usage "Unkown command: $command";;
   esac
 }
 
@@ -33,11 +47,11 @@ add() {
   fi
   local json
   json=$(jq --null-input \
-    --arg un "user-$n" \
+    --arg fid "fid-$n" \
     --arg pii "secret-$n" \
     --arg fn "first-$n" \
     --arg ln "last-$n" \
-    '{"userName":$un,"pii":$pii,"firstName":$fn,"lastName":$ln}')
+    '{"facilityId":$fid,"pii":$pii,"firstName":$fn,"lastName":$ln}')
   curl -s \
     -HContent-Type:application/json \
     -d "$json" \

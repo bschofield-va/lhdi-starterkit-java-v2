@@ -24,7 +24,7 @@ public class FacilityVisitData {
     private String id;
 
     @NonNull
-    private String userName;
+    private String facilityId;
     @NonNull
     private String pii;
     @NonNull

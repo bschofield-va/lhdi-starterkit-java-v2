@@ -69,7 +69,7 @@ public class FacilityVisitServiceImplTest {
 
     resource =
         FacilityVisit.builder()
-            .userName(defaultFacilityVisitData.getUserName())
+            .facilityId(defaultFacilityVisitData.getFacilityId())
             .pii(defaultFacilityVisitData.getPii())
             .firstName(defaultFacilityVisitData.getFirstName())
             .lastName(defaultFacilityVisitData.getLastName())
@@ -78,7 +78,7 @@ public class FacilityVisitServiceImplTest {
     added =
         new FacilityVisitEntity(
             defaultFacilityVisitData.getId(),
-            entity.getUserName(),
+            entity.getFacilityId(),
             entity.getPii(),
             entity.getFirstName(),
             entity.getLastName());
@@ -141,9 +141,9 @@ public class FacilityVisitServiceImplTest {
   public void findByUserNameTest() {
 
     createOptionalMapperStubs();
-    Mockito.when(repository.findByUserName(defaultFacilityVisitData.getUserName())).thenReturn(optionalAdded);
+    Mockito.when(repository.findByFacilityId(defaultFacilityVisitData.getFacilityId())).thenReturn(optionalAdded);
 
-    Optional<FacilityVisit> response = manager.findByUserName(defaultFacilityVisitData.getUserName());
+    Optional<FacilityVisit> response = manager.findByFacilityId(defaultFacilityVisitData.getFacilityId());
 
     Assertions.assertThat(response.isPresent()).isTrue();
     Assertions.assertThat(response.get().getFirstName()).isEqualTo(added.getFirstName());
@@ -154,9 +154,9 @@ public class FacilityVisitServiceImplTest {
   public void findByUserNameFailedTest() {
 
     createEmptyMapperStubs();
-    Mockito.when(repository.findByUserName(bogusFacilityVisitData.getUserName())).thenReturn(emptyEntity);
+    Mockito.when(repository.findByFacilityId(bogusFacilityVisitData.getFacilityId())).thenReturn(emptyEntity);
 
-    Optional<FacilityVisit> response = manager.findByUserName(bogusFacilityVisitData.getUserName());
+    Optional<FacilityVisit> response = manager.findByFacilityId(bogusFacilityVisitData.getFacilityId());
 
     Assertions.assertThat(response.isEmpty()).isTrue();
   }

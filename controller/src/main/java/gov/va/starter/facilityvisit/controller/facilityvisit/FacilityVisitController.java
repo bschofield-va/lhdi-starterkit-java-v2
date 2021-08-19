@@ -47,7 +47,7 @@ public class FacilityVisitController implements FacilityVisitResource {
   public ResponseEntity<FacilityVisitResponse> addEntity(FacilityVisitRequest addEntityRequest)
       throws RequestValidationException {
 
-    log.info("username->{}", addEntityRequest.getUserName());
+    log.info("username->{}", addEntityRequest.getFacilityId());
     FacilityVisit resource = mapper.toModel(addEntityRequest);
     FacilityVisit saved = manager.add(resource);
     FacilityVisitResponse response = mapper.toFacilityVisitResponse(saved);

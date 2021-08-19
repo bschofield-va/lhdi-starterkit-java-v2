@@ -71,8 +71,8 @@ class FacilityVisitErrorHandlingContextTest {
   // This object will be magically initialized by the initFields method below.
 
   @Autowired private JacksonTester<FacilityVisitRequest> jsonRequest;
-  private FacilityVisitRequest request = new FacilityVisitRequest(defaultFacilityVisit.getUserName(), defaultFacilityVisit.getPii(), defaultFacilityVisit.getFirstName(), defaultFacilityVisit.getLastName());
-  private FacilityVisit model = new FacilityVisit(defaultFacilityVisit.getUserName(), defaultFacilityVisit.getPii(), defaultFacilityVisit.getFirstName(), defaultFacilityVisit.getLastName());
+  private FacilityVisitRequest request = new FacilityVisitRequest(defaultFacilityVisit.getFacilityId(), defaultFacilityVisit.getPii(), defaultFacilityVisit.getFirstName(), defaultFacilityVisit.getLastName());
+  private FacilityVisit model = new FacilityVisit(defaultFacilityVisit.getFacilityId(), defaultFacilityVisit.getPii(), defaultFacilityVisit.getFirstName(), defaultFacilityVisit.getLastName());
 
   @Test
   void whenResourceNotRetrieved_thenReturns404() throws Exception {
@@ -134,7 +134,7 @@ class FacilityVisitErrorHandlingContextTest {
   void whenHttpMessageNotReadable_thenReturns400() throws Exception {
 
     String requestMessage =
-        "{ \"userName\": null, \"pii\": null, \"firstName\": null, \"lastName\": null}";
+        "{ \"facilityId\": null, \"pii\": null, \"firstName\": null, \"lastName\": null}";
 
     // when
     MockHttpServletResponse response =
@@ -158,7 +158,7 @@ class FacilityVisitErrorHandlingContextTest {
     assertThat(error.getType().toString()).isEqualTo(requestValidationType);
     assertThat(error.getInstance().toString())
         .isEqualTo(String.format("%s/%s", baseUrl, traceInfo));
-    assertThat(error.getDetail()).contains("userName is marked non-null but is null");
+    assertThat(error.getDetail()).contains("facilityId is marked non-null but is null");
   }
 
   @Test

@@ -14,7 +14,7 @@ public interface FacilityVisitService {
 
   Page<FacilityVisit> findByLastName(String lastName, Pageable pageable);
 
-  Optional<FacilityVisit> findByUserName(String userName);
+  Optional<FacilityVisit> findByFacilityId(String facilityId);
 
   Optional<FacilityVisit> findById(String id);
 

@@ -78,12 +78,12 @@ public class FacilityVisitControllerTest {
     defaultFacilityVisit = facilityVisitFactory.createBySpec(DEFAULT_SPEC);
     bogusFacilityVisit = facilityVisitFactory.createBySpec("bogus");
 
-    request = new FacilityVisitRequest(defaultFacilityVisit.getUserName(), defaultFacilityVisit.getPii(), defaultFacilityVisit.getFirstName(), defaultFacilityVisit.getLastName());
+    request = new FacilityVisitRequest(defaultFacilityVisit.getFacilityId(), defaultFacilityVisit.getPii(), defaultFacilityVisit.getFirstName(), defaultFacilityVisit.getLastName());
     resource = real.toModel(request);
     output =
         new FacilityVisit(
             defaultFacilityVisit.getId(),
-            resource.getUserName(),
+            resource.getFacilityId(),
             resource.getPii(),
             resource.getFirstName(),
             resource.getLastName());
@@ -262,7 +262,7 @@ public class FacilityVisitControllerTest {
    * @param resource the object to validate
    */
   protected void verifyFacilityVisit(FacilityVisit resource) {
-    assertThat(resource.getUserName().equals(defaultFacilityVisit.getUserName()));
+    assertThat(resource.getFacilityId().equals(defaultFacilityVisit.getFacilityId()));
     assertThat(resource.getPii().equals(defaultFacilityVisit.getPii()));
     assertThat(resource.getFirstName().equals(defaultFacilityVisit.getFirstName()));
     assertThat(resource.getLastName().equals(defaultFacilityVisit.getLastName()));
@@ -275,7 +275,7 @@ public class FacilityVisitControllerTest {
    * @param response the object to validate
    */
   private void verifyFacilityVisitResponse(FacilityVisitResponse response) {
-    assertThat(response.getUserName().equals(defaultFacilityVisit.getUserName()));
+    assertThat(response.getFacilityId().equals(defaultFacilityVisit.getFacilityId()));
     assertThat(response.getPii().equals(defaultFacilityVisit.getPii()));
     assertThat(response.getId()).isEqualTo(defaultFacilityVisit.getId());
   }
