@@ -17,9 +17,6 @@ public interface FacilityVisitRequestMapper {
   @Mapping(constant = "UNKNOWN_ID", target = "id")
   FacilityVisit toModel(FacilityVisitRequest request);
 
-  @Mapping(
-      target = "fullName",
-      expression = "java(String.format(\"%s %s\",src.getFirstName(),src.getLastName()))")
   FacilityVisitResponse toFacilityVisitResponse(FacilityVisit src);
 
   default FacilityVisitResponse toFacilityVisitResponse(Optional<FacilityVisit> src) {

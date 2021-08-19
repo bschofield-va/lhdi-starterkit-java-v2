@@ -143,7 +143,6 @@ public class FacilityVisitControllerTest {
     assertThat(response.getStatusCodeValue()).isEqualTo(201);
     assertThat(response.getBody()).isNotNull();
     assertThat(response.getBody().getPii()).isEqualTo(defaultFacilityVisit.getPii());
-    assertThat(response.getBody().getFullName()).isEqualTo(defaultFacilityVisit.getFullName());
     assertThat(response.getBody().getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 
@@ -158,7 +157,6 @@ public class FacilityVisitControllerTest {
 
     assertThat(response.getStatusCodeValue()).isEqualTo(200);
     assertThat(response.getBody().getPii()).isEqualTo(defaultFacilityVisit.getPii());
-    assertThat(response.getBody().getFullName()).isEqualTo(defaultFacilityVisit.getFullName());
     assertThat(response.getBody().getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 
@@ -214,7 +212,6 @@ public class FacilityVisitControllerTest {
 
     assertThat(response.getStatusCodeValue()).isEqualTo(200);
     assertThat(response.getBody().getPii()).isEqualTo(defaultFacilityVisit.getPii());
-    assertThat(response.getBody().getFullName()).isEqualTo(defaultFacilityVisit.getFullName());
     assertThat(response.getBody().getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 
@@ -243,7 +240,6 @@ public class FacilityVisitControllerTest {
 
     assertThat(response.getStatusCodeValue()).isEqualTo(200);
     assertThat(response.getBody().getPii()).isEqualTo(defaultFacilityVisit.getPii());
-    assertThat(response.getBody().getFullName()).isEqualTo(defaultFacilityVisit.getFullName());
     assertThat(response.getBody().getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 
@@ -281,7 +277,6 @@ public class FacilityVisitControllerTest {
   private void verifyFacilityVisitResponse(FacilityVisitResponse response) {
     assertThat(response.getUserName().equals(defaultFacilityVisit.getUserName()));
     assertThat(response.getPii().equals(defaultFacilityVisit.getPii()));
-    assertThat(response.getFullName().equals(defaultFacilityVisit.getFullName()));
     assertThat(response.getId()).isEqualTo(defaultFacilityVisit.getId());
   }
 }

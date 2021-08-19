@@ -31,5 +31,5 @@ public class FacilityVisitData {
     private String firstName;
     @NonNull
     private String lastName;
-    private String fullName;
+
 }

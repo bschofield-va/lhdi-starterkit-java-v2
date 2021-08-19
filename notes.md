@@ -1,6 +1,6 @@
 # Notes
 
-# Project creation
+## Project creation
 - Initial creation of project did not compile and required manual clean up
 - Application does not start
   ```
@@ -8,10 +8,35 @@
   ```
 
 
-# Build experience
+## Build experience
 
 This portion of _every_ gradle command is excruciating
 ```
 <-------------> 6% CONFIGURING [31s]
 > root project > Resolve dependencies of detachedConfiguration
+```
+
+
+## Generated Code Review
+Deprecated:
+```
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+```
+---
+Optimize Lombok annotations
+```
+@Getter
+@Setter
+@NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@Builder
+```
+should just be
+```
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 ```

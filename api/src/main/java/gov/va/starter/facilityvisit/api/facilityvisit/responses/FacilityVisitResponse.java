@@ -35,9 +35,4 @@ public class FacilityVisitResponse {
   @Schema(description = "Family name of the FacilityVisit holder", example = "van Pelt")
   private final String lastName;
 
-  @NonNull
-  @Schema(
-      description = "Constructed full name (given + family) of the FacilityVisit holder",
-      example = "Lucy van Pelt")
-  private final String fullName;
 }

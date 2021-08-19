@@ -149,7 +149,6 @@ public class FacilityVisitRequestMapperTest {
   private void verifyFacilityVisitResponse(FacilityVisitResponse response) {
     assertThat(response.getUserName().equals(defaultFacilityVisitData.getUserName()));
     assertThat(response.getPii().equals(defaultFacilityVisitData.getPii()));
-    assertThat(response.getFullName().equals(defaultFacilityVisitData.getFullName()));
     assertThat(response.getId()).isEqualTo(defaultFacilityVisitData.getId());
   }
 }

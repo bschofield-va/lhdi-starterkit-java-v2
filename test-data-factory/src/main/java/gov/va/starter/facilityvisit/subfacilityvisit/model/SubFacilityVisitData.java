@@ -24,5 +24,5 @@ public class SubFacilityVisitData {
     private String firstName;
     @NonNull
     private String lastName;
-    private String fullName;
+
 }

@@ -24,7 +24,6 @@ public class FacilityVisitFactoryTest {
         assertThat(defaultFacilityVisit.getPii()).isEqualTo("defaultPii");
         assertThat(defaultFacilityVisit.getFirstName()).isEqualTo("defaultFirstName");
         assertThat(defaultFacilityVisit.getLastName()).isEqualTo("defaultLastName");
-        assertThat(defaultFacilityVisit.getFullName()).isEqualTo("defaultFirstName defaultLastName");
     }
 
     @Test
@@ -37,7 +36,6 @@ public class FacilityVisitFactoryTest {
         assertThat(defaultFacilityVisitCollection.get(0).getPii()).isEqualTo("defaultPii");
         assertThat(defaultFacilityVisitCollection.get(0).getFirstName()).isEqualTo("defaultFirstName");
         assertThat(defaultFacilityVisitCollection.get(0).getLastName()).isEqualTo("defaultLastName");
-        assertThat(defaultFacilityVisitCollection.get(0).getFullName()).isEqualTo("defaultFirstName defaultLastName");
     }
 
     @Test
@@ -49,7 +47,6 @@ public class FacilityVisitFactoryTest {
         assertThat(defaultFacilityVisit.getPii()).isEqualTo("bogusPii");
         assertThat(defaultFacilityVisit.getFirstName()).isEqualTo("bogusFirstName");
         assertThat(defaultFacilityVisit.getLastName()).isEqualTo("bogusLastName");
-        assertThat(defaultFacilityVisit.getFullName()).isEqualTo("bogusFirstName bogusLastName");
     }
 
     @Test
@@ -62,7 +59,6 @@ public class FacilityVisitFactoryTest {
         assertThat(defaultFacilityVisitCollection.get(0).getPii()).isEqualTo("bogusPii");
         assertThat(defaultFacilityVisitCollection.get(0).getFirstName()).isEqualTo("bogusFirstName");
         assertThat(defaultFacilityVisitCollection.get(0).getLastName()).isEqualTo("bogusLastName");
-        assertThat(defaultFacilityVisitCollection.get(0).getFullName()).isEqualTo("bogusFirstName bogusLastName");
     }
 
     @Test
@@ -74,7 +70,6 @@ public class FacilityVisitFactoryTest {
         assertThat(defaultFacilityVisit.getPii()).isEqualTo("dupPii");
         assertThat(defaultFacilityVisit.getFirstName()).isEqualTo("dupFirstName");
         assertThat(defaultFacilityVisit.getLastName()).isEqualTo("Smith");
-        assertThat(defaultFacilityVisit.getFullName()).isEqualTo("dupFirstName Smith");
     }
 
     @Test
@@ -87,6 +82,5 @@ public class FacilityVisitFactoryTest {
         assertThat(defaultFacilityVisitCollection.get(0).getPii()).isEqualTo("dupPii");
         assertThat(defaultFacilityVisitCollection.get(0).getFirstName()).isEqualTo("dupFirstName");
         assertThat(defaultFacilityVisitCollection.get(0).getLastName()).isEqualTo("Smith");
-        assertThat(defaultFacilityVisitCollection.get(0).getFullName()).isEqualTo("dupFirstName Smith");
     }
 }
