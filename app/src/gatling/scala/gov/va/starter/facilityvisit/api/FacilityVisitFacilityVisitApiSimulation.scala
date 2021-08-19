@@ -17,7 +17,7 @@ class FacilityVisitFacilityVisitApiSimulation extends Simulation {
   val scn = scenario("API Endpoint Simulation")
     .exec(http("Create FacilityVisit")
       .post("/v1/facilityvisit/facilityvisits")
-      .body(StringBody("""{"facilityId":"653", "pii": "987-65-4321", "firstName": "Mary", "lastName":"Contrary"}"""))
+      .body(StringBody("""{"facilityId":"653", "pii": "987-65-4321", "visitorIcn": "Mary", "lastName":"Contrary"}"""))
       .asJson
       .check(jsonPath("$.id").saveAs("userId")))
     .exec(http("Get FacilityVisit")

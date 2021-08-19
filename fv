@@ -49,9 +49,9 @@ add() {
   json=$(jq --null-input \
     --arg fid "fid-$n" \
     --arg pii "secret-$n" \
-    --arg fn "first-$n" \
+    --arg fn "icn-$n" \
     --arg ln "last-$n" \
-    '{"facilityId":$fid,"pii":$pii,"firstName":$fn,"lastName":$ln}')
+    '{"facilityId":$fid,"pii":$pii,"visitorIcn":$fn,"lastName":$ln}')
   curl -s \
     -HContent-Type:application/json \
     -d "$json" \

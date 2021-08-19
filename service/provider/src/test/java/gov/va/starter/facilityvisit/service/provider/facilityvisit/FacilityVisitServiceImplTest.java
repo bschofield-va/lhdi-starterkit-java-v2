@@ -71,7 +71,7 @@ public class FacilityVisitServiceImplTest {
         FacilityVisit.builder()
             .facilityId(defaultFacilityVisitData.getFacilityId())
             .pii(defaultFacilityVisitData.getPii())
-            .firstName(defaultFacilityVisitData.getFirstName())
+            .visitorIcn(defaultFacilityVisitData.getVisitorIcn())
             .lastName(defaultFacilityVisitData.getLastName())
             .build();
     entity = real.toEntity(resource);
@@ -80,7 +80,7 @@ public class FacilityVisitServiceImplTest {
             defaultFacilityVisitData.getId(),
             entity.getFacilityId(),
             entity.getPii(),
-            entity.getFirstName(),
+            entity.getVisitorIcn(),
             entity.getLastName());
     output = real.toModel(added);
     optionalEntity = Optional.of(entity);
@@ -133,7 +133,7 @@ public class FacilityVisitServiceImplTest {
 
     FacilityVisit response = manager.add(resource);
 
-    Assertions.assertThat(response.getFirstName()).isEqualTo(resource.getFirstName());
+    Assertions.assertThat(response.getVisitorIcn()).isEqualTo(resource.getVisitorIcn());
     Assertions.assertThat(response.getId()).isEqualTo(added.getId());
   }
 
@@ -146,7 +146,7 @@ public class FacilityVisitServiceImplTest {
     Optional<FacilityVisit> response = manager.findByFacilityId(defaultFacilityVisitData.getFacilityId());
 
     Assertions.assertThat(response.isPresent()).isTrue();
-    Assertions.assertThat(response.get().getFirstName()).isEqualTo(added.getFirstName());
+    Assertions.assertThat(response.get().getVisitorIcn()).isEqualTo(added.getVisitorIcn());
     Assertions.assertThat(response.get().getId()).isEqualTo(added.getId());
   }
 
@@ -170,8 +170,8 @@ public class FacilityVisitServiceImplTest {
     Page<FacilityVisit> response = manager.findByLastName(defaultFacilityVisitData.getLastName(), pageable);
 
     Assertions.assertThat(response.getContent().isEmpty()).isFalse();
-    Assertions.assertThat(response.getContent().get(0).getFirstName())
-        .isEqualTo(added.getFirstName());
+    Assertions.assertThat(response.getContent().get(0).getVisitorIcn())
+        .isEqualTo(added.getVisitorIcn());
     Assertions.assertThat(response.getContent().get(0).getId()).isEqualTo(added.getId());
   }
 
@@ -195,7 +195,7 @@ public class FacilityVisitServiceImplTest {
     Optional<FacilityVisit> response = manager.findById(defaultFacilityVisitData.getId());
 
     Assertions.assertThat(response.isPresent()).isTrue();
-    Assertions.assertThat(response.get().getFirstName()).isEqualTo(added.getFirstName());
+    Assertions.assertThat(response.get().getVisitorIcn()).isEqualTo(added.getVisitorIcn());
     Assertions.assertThat(response.get().getId()).isEqualTo(added.getId());
   }
 
@@ -243,7 +243,7 @@ public class FacilityVisitServiceImplTest {
     Optional<FacilityVisit> response = manager.updateById(defaultFacilityVisitData.getId(), resource);
 
     Assertions.assertThat(response.isPresent()).isTrue();
-    Assertions.assertThat(response.get().getFirstName()).isEqualTo(resource.getFirstName());
+    Assertions.assertThat(response.get().getVisitorIcn()).isEqualTo(resource.getVisitorIcn());
     Assertions.assertThat(response.get().getId()).isEqualTo(defaultFacilityVisitData.getId());
   }
 
@@ -267,7 +267,7 @@ public class FacilityVisitServiceImplTest {
     Optional<FacilityVisit> response = manager.deleteById(defaultFacilityVisitData.getId());
 
     Assertions.assertThat(response.isPresent()).isTrue();
-    Assertions.assertThat(response.get().getFirstName()).isEqualTo(added.getFirstName());
+    Assertions.assertThat(response.get().getVisitorIcn()).isEqualTo(added.getVisitorIcn());
     Assertions.assertThat(response.get().getId()).isEqualTo(added.getId());
   }
 

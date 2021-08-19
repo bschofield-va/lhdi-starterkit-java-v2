@@ -78,14 +78,14 @@ public class FacilityVisitControllerTest {
     defaultFacilityVisit = facilityVisitFactory.createBySpec(DEFAULT_SPEC);
     bogusFacilityVisit = facilityVisitFactory.createBySpec("bogus");
 
-    request = new FacilityVisitRequest(defaultFacilityVisit.getFacilityId(), defaultFacilityVisit.getPii(), defaultFacilityVisit.getFirstName(), defaultFacilityVisit.getLastName());
+    request = new FacilityVisitRequest(defaultFacilityVisit.getFacilityId(), defaultFacilityVisit.getPii(), defaultFacilityVisit.getVisitorIcn(), defaultFacilityVisit.getLastName());
     resource = real.toModel(request);
     output =
         new FacilityVisit(
             defaultFacilityVisit.getId(),
             resource.getFacilityId(),
             resource.getPii(),
-            resource.getFirstName(),
+            resource.getVisitorIcn(),
             resource.getLastName());
     response = real.toFacilityVisitResponse(output);
     optionalResponse = Optional.of(response);
@@ -264,7 +264,7 @@ public class FacilityVisitControllerTest {
   protected void verifyFacilityVisit(FacilityVisit resource) {
     assertThat(resource.getFacilityId().equals(defaultFacilityVisit.getFacilityId()));
     assertThat(resource.getPii().equals(defaultFacilityVisit.getPii()));
-    assertThat(resource.getFirstName().equals(defaultFacilityVisit.getFirstName()));
+    assertThat(resource.getVisitorIcn().equals(defaultFacilityVisit.getVisitorIcn()));
     assertThat(resource.getLastName().equals(defaultFacilityVisit.getLastName()));
     assertThat(resource.getId()).isNotEqualTo(defaultFacilityVisit.getId());
   }

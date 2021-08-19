@@ -33,7 +33,7 @@ public class FacilityVisitEntityRepositoryTest {
 
   @BeforeEach
   public void setup() {
-    entity = new FacilityVisitEntity(defaultFacilityVisitDataCollection.get(0).getFacilityId(), defaultFacilityVisitDataCollection.get(0).getPii(), defaultFacilityVisitDataCollection.get(0).getFirstName(), defaultFacilityVisitDataCollection.get(0).getLastName());
+    entity = new FacilityVisitEntity(defaultFacilityVisitDataCollection.get(0).getFacilityId(), defaultFacilityVisitDataCollection.get(0).getPii(), defaultFacilityVisitDataCollection.get(0).getVisitorIcn(), defaultFacilityVisitDataCollection.get(0).getLastName());
   }
 
   /**
@@ -43,10 +43,10 @@ public class FacilityVisitEntityRepositoryTest {
    */
   public FacilityVisitEntity populate() {
     FacilityVisitEntity result = modelEntityRepository.save(entity);
-    FacilityVisitEntity agentSmith = new FacilityVisitEntity(defaultFacilityVisitDataCollection.get(1).getFacilityId(), defaultFacilityVisitDataCollection.get(1).getPii(), defaultFacilityVisitDataCollection.get(1).getFirstName(), defaultFacilityVisitDataCollection.get(1).getLastName());
+    FacilityVisitEntity agentSmith = new FacilityVisitEntity(defaultFacilityVisitDataCollection.get(1).getFacilityId(), defaultFacilityVisitDataCollection.get(1).getPii(), defaultFacilityVisitDataCollection.get(1).getVisitorIcn(), defaultFacilityVisitDataCollection.get(1).getLastName());
     modelEntityRepository.save(agentSmith);
     FacilityVisitEntity maryQuiteContrary =
-        new FacilityVisitEntity(defaultFacilityVisitDataCollection.get(2).getFacilityId(), defaultFacilityVisitDataCollection.get(2).getPii(), defaultFacilityVisitDataCollection.get(2).getFirstName(), defaultFacilityVisitDataCollection.get(2).getLastName());
+        new FacilityVisitEntity(defaultFacilityVisitDataCollection.get(2).getFacilityId(), defaultFacilityVisitDataCollection.get(2).getPii(), defaultFacilityVisitDataCollection.get(2).getVisitorIcn(), defaultFacilityVisitDataCollection.get(2).getLastName());
     modelEntityRepository.save(maryQuiteContrary);
 
     return result;
@@ -64,7 +64,7 @@ public class FacilityVisitEntityRepositoryTest {
     Optional<FacilityVisitEntity> retrievedEntity = modelEntityRepository.findByFacilityId(defaultFacilityVisitDataCollection.get(0).getFacilityId());
 
     assertThat(retrievedEntity.isPresent());
-    assertThat(retrievedEntity.get().getFirstName()).isEqualTo(defaultFacilityVisitDataCollection.get(0).getFirstName());
+    assertThat(retrievedEntity.get().getVisitorIcn()).isEqualTo(defaultFacilityVisitDataCollection.get(0).getVisitorIcn());
   }
 
   @Test

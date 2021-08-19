@@ -29,7 +29,7 @@ public class FacilityVisitResponse {
 
   @NonNull
   @Schema(description = "Given name of the FacilityVisit holder", example = "Lucy")
-  private final String firstName;
+  private final String visitorIcn;
 
   @NonNull
   @Schema(description = "Family name of the FacilityVisit holder", example = "van Pelt")

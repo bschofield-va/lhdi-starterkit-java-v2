@@ -116,7 +116,7 @@ public class FacilityVisitRequestMapperTest {
    * @return FacilityVisit object
    */
   private FacilityVisit createFacilityVisit(String id) {
-    return new FacilityVisit(id, defaultFacilityVisitData.getFacilityId(), defaultFacilityVisitData.getPii(), defaultFacilityVisitData.getFirstName(), defaultFacilityVisitData.getLastName());
+    return new FacilityVisit(id, defaultFacilityVisitData.getFacilityId(), defaultFacilityVisitData.getPii(), defaultFacilityVisitData.getVisitorIcn(), defaultFacilityVisitData.getLastName());
   }
 
   /**
@@ -125,7 +125,7 @@ public class FacilityVisitRequestMapperTest {
    * @return FacilityVisitRequest object
    */
   private FacilityVisitRequest createFacilityVisitRequest() {
-    return new FacilityVisitRequest(defaultFacilityVisitData.getFacilityId(), defaultFacilityVisitData.getPii(), defaultFacilityVisitData.getFirstName(), defaultFacilityVisitData.getLastName());
+    return new FacilityVisitRequest(defaultFacilityVisitData.getFacilityId(), defaultFacilityVisitData.getPii(), defaultFacilityVisitData.getVisitorIcn(), defaultFacilityVisitData.getLastName());
   }
 
   /**
@@ -136,7 +136,7 @@ public class FacilityVisitRequestMapperTest {
   protected void verifyFacilityVisit(FacilityVisit resource) {
     assertThat(resource.getFacilityId().equals(defaultFacilityVisitData.getFacilityId()));
     assertThat(resource.getPii().equals(defaultFacilityVisitData.getPii()));
-    assertThat(resource.getFirstName().equals(defaultFacilityVisitData.getFirstName()));
+    assertThat(resource.getVisitorIcn().equals(defaultFacilityVisitData.getVisitorIcn()));
     assertThat(resource.getLastName().equals(defaultFacilityVisitData.getLastName()));
     assertThat(resource.getId()).isNotEqualTo(defaultFacilityVisitData.getId());
   }

@@ -7,27 +7,27 @@ import java.util.Arrays;
 
 public class FacilityVisitFactory extends NamedDataFactory<FacilityVisitData> {
     public FacilityVisitFactory() {
-        data.put(DEFAULT_SPEC, new FacilityVisitData("defaultId","defaultUserName", "defaultPii", "defaultFirstName", "defaultLastName"));
+        data.put(DEFAULT_SPEC, new FacilityVisitData("defaultId","defaultFacilityId", "defaultPii", "defaultVisitorIcn", "defaultLastName"));
         collections.put(DEFAULT_SPEC, Arrays.asList(
-                new FacilityVisitData("defaultId","defaultUserName", "defaultPii", "defaultFirstName", "defaultLastName"),
-                new FacilityVisitData("defaultId2","defaultUserName2", "defaultPii2", "defaultFirstName2", "defaultLastName2"),
-                new FacilityVisitData("defaultId3","defaultUserName3", "defaultPii3", "defaultFirstName3", "defaultLastName3"))
+                new FacilityVisitData("defaultId","defaultFacilityId", "defaultPii", "defaultVisitorIcn", "defaultLastName"),
+                new FacilityVisitData("defaultId2","defaultFacilityId2", "defaultPii2", "defaultVisitorIcn2", "defaultLastName2"),
+                new FacilityVisitData("defaultId3","defaultFacilityId3", "defaultPii3", "defaultVisitorIcn3", "defaultLastName3"))
 
         );
 
-        data.put("bogus", new FacilityVisitData("bogusId","bogusUserName", "bogusPii", "bogusFirstName", "bogusLastName"));
+        data.put("bogus", new FacilityVisitData("bogusId","bogusFacilityId", "bogusPii", "bogusVisitorIcn", "bogusLastName"));
         collections.put("bogus", Arrays.asList(
-                new FacilityVisitData("bogusId","bogusUserName", "bogusPii", "bogusFirstName", "bogusLastName"),
-                new FacilityVisitData("bogusId2","bogusUserName2", "bogusPii2", "bogusFirstName2", "bogusLastName2"),
-                new FacilityVisitData("bogusId3","bogusUserName3", "bogusPii3", "bogusFirstName3", "bogusLastName3"))
+                new FacilityVisitData("bogusId","bogusFacilityId", "bogusPii", "bogusVisitorIcn", "bogusLastName"),
+                new FacilityVisitData("bogusId2","bogusFacilityId2", "bogusPii2", "bogusVisitorIcn2", "bogusLastName2"),
+                new FacilityVisitData("bogusId3","bogusFacilityId3", "bogusPii3", "bogusVisitorIcn3", "bogusLastName3"))
 
         );
 
-        data.put("duplicateLastName", new FacilityVisitData("dupId","dupUserName", "dupPii", "dupFirstName", "Smith"));
+        data.put("duplicateLastName", new FacilityVisitData("dupId","dupFacilityId", "dupPii", "dupVisitorIcn", "Smith"));
         collections.put("duplicateLastName", Arrays.asList(
-                new FacilityVisitData("dupId","dupUserName", "dupPii", "dupFirstName", "Smith"),
-                new FacilityVisitData("dupId2","dupUserName2", "dupPii2", "dupFirstName2", "Smith"),
-                new FacilityVisitData("dupId3","dupUserName3", "dupPii3", "dupFirstName3", "dupLastName3"))
+                new FacilityVisitData("dupId","dupFacilityId", "dupPii", "dupVisitorIcn", "Smith"),
+                new FacilityVisitData("dupId2","dupFacilityId2", "dupPii2", "dupVisitorIcn2", "Smith"),
+                new FacilityVisitData("dupId3","dupFacilityId3", "dupPii3", "dupVisitorIcn3", "dupLastName3"))
 
         );
     }

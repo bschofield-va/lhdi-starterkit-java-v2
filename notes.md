@@ -48,3 +48,5 @@ should just be
 @AllArgsConstructor
 @Builder
 ```
+---
+`starter` in the generated `gov.va.starter.*` package seems unnecessary and unwanted. 
