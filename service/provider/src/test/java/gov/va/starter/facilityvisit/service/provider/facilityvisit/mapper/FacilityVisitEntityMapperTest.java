@@ -2,8 +2,6 @@ package gov.va.starter.facilityvisit.service.provider.facilityvisit.mapper;
 
 import gov.va.starter.facilityvisit.facilityvisit.factory.FacilityVisitFactory;
 import gov.va.starter.facilityvisit.facilityvisit.model.FacilityVisitData;
-import gov.va.starter.facilityvisit.account.factory.AccountFactory;
-import gov.va.starter.facilityvisit.account.model.AccountData;
 import gov.va.starter.facilityvisit.persistence.model.FacilityVisitEntity;
 import gov.va.starter.facilityvisit.service.spi.facilityvisit.model.FacilityVisit;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,8 +23,6 @@ public class FacilityVisitEntityMapperTest {
 
   private FacilityVisitFactory facilityVisitFactory = new FacilityVisitFactory();
   private FacilityVisitData facilityVisitData = facilityVisitFactory.createBySpec(DEFAULT_SPEC);
-  private AccountFactory accountFactory = new AccountFactory();
-  private AccountData accountData = accountFactory.createBySpec(DEFAULT_SPEC);
   private FacilityVisitEntityMapper mapper;
 
   @BeforeEach
