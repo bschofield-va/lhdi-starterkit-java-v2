@@ -56,3 +56,5 @@ should just be (unless you specifically do not want `toString()`)
 ```
 ---
 `starter` in the generated `gov.va.starter.*` package seems unnecessary and unwanted. 
+---
+Any thoughts on enabling fluent style on Lombok generated classes?

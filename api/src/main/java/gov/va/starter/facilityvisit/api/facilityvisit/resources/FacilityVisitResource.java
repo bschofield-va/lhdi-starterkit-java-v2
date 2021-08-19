@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.zalando.problem.Problem;
 
@@ -180,10 +181,19 @@ public interface FacilityVisitResource {
   @Timed(value = "facilityvisit.facilityvisits.findAll")
   ResponseEntity<PagedResponse<FacilityVisitResponse>> findEntities(
       @Parameter(
+          description = "Patient ICN Cannot null or empty.",
+          example = "1234567890V123456",
+          required = false)
+      @NotNull
+      @RequestParam(value = "icn", required = false)
+          String icn,
+      @Parameter(
               description = "Paging specification for retrieving a subset of the full list.",
               example = "{\"page\": 0, \"size\": 10, \"sort\":[\"id\"]}",
               required = false)
           Pageable pageable);
+
+
 
   @Operation(
       summary = "Update FacilityVisit",

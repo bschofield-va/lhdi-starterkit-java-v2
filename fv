@@ -39,17 +39,16 @@ main() {
 }
 
 listAll() {
-  local icn="${1:-}"
-  local query=$URL
-  if [ -n "${icn:-}" ]
+  local query
+  if [ -n "${1:-}" ]
   then
-    echo
+    query="?$1"
   fi
   if [ -t 1 ]
   then
-    curl -s $query | jq .
+    curl -s ${URL}${query:-} | jq .
   else
-    curl -s $query
+    curl -s ${URL}${query:-}
   fi
 }
 

@@ -1,5 +1,7 @@
 package gov.va.starter.facilityvisit.controller.facilityvisit;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 import gov.va.starter.boot.exception.RequestValidationException;
 import gov.va.starter.boot.exception.ResourceNotFoundException;
 import gov.va.starter.boot.notifier.EntityLifecycleNotifier;
@@ -69,9 +71,9 @@ public class FacilityVisitController implements FacilityVisitResource {
   }
 
   @Override
-  public ResponseEntity<PagedResponse<FacilityVisitResponse>> findEntities(Pageable pageable) {
-    Page<FacilityVisit> resources = manager.findAll(pageable);
-
+  public ResponseEntity<PagedResponse<FacilityVisitResponse>> findEntities(String icn,Pageable pageable) {
+    Page<FacilityVisit> resources =
+        isBlank(icn)?manager.findAll(pageable):manager.findByVisitorIcn(icn,pageable);
     return new ResponseEntity<>(mapper.toFacilityVisitResponsePage(resources), HttpStatus.OK);
   }
 

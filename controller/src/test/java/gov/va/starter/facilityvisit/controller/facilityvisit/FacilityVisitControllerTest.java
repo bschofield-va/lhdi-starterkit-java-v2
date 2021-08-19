@@ -180,7 +180,21 @@ public class FacilityVisitControllerTest {
     Mockito.when(manager.findAll(pageable)).thenReturn(outputPage);
 
     ResponseEntity<PagedResponse<FacilityVisitResponse>> response =
-        controller.findEntities(pageable);
+        controller.findEntities(null,pageable);
+
+    assertThat(response.getStatusCodeValue()).isEqualTo(200);
+    assertThat(response.getBody().getItems().size()).isEqualTo(2);
+    // Todo: check contents of the list objects
+  }
+
+  @Test
+  public void findAllForVisitorIcnTest() throws Exception {
+
+    createListMapperStubs();
+    Mockito.when(manager.findByVisitorIcn(defaultFacilityVisit.getVisitorIcn(),pageable)).thenReturn(outputPage);
+
+    ResponseEntity<PagedResponse<FacilityVisitResponse>> response =
+        controller.findEntities(defaultFacilityVisit.getVisitorIcn(),pageable);
 
     assertThat(response.getStatusCodeValue()).isEqualTo(200);
     assertThat(response.getBody().getItems().size()).isEqualTo(2);
@@ -194,7 +208,7 @@ public class FacilityVisitControllerTest {
     Mockito.when(manager.findAll(pageable)).thenReturn(emptyOutputPage);
 
     ResponseEntity<PagedResponse<FacilityVisitResponse>> response =
-        controller.findEntities(pageable);
+        controller.findEntities(null,pageable);
 
     assertThat(response.getStatusCodeValue()).isEqualTo(200);
     assertThat(response.getBody().getItems().size()).isEqualTo(0);
