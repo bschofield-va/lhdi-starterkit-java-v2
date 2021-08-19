@@ -20,6 +20,12 @@ This portion of _every_ gradle command is excruciating
 > root project > Resolve dependencies of detachedConfiguration
 ```
 
+## Refactor experience
+Field name changes very easy.
+```
+sed -i 's/lastName/visitedAt/g' $(git grep -l lastName)
+sed -i 's/LastName/VisitedAt/g' $(git grep -l LastName)
+```
 
 ## Generated Code Review
 Deprecated Jackson annotation
