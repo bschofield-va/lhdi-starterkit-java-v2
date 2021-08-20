@@ -64,3 +64,27 @@ should just be (unless you specifically do not want `toString()`)
 `starter` in the generated `gov.va.starter.*` package seems unnecessary and unwanted. 
 ---
 Any thoughts on enabling fluent style on Lombok generated classes?
+---
+
+## Greatest Hits and New Releases
+- Should non-application related directories be hidden, e.g. `.helmchart`, `.settings`
+- The `Activator*` and `FacilityVisitRepositoryImpl` classes in service are still very confusing. I cannot determine their purpose.
+- Consider renaming `service/provider` to `service/provider-jpa` and `FacilityVisitServiceImpl` to `JpaFacilityVisitService`
+- Consider standardizing initialization sidecars names, e.g. `init-opa`, `init-db`, `init-db-migration`
+- Consider a flat directory structure, e.g.
+  ```
+  api
+  app
+  controller
+  jpa-migrations
+  jpa-db-init
+  jpa-model
+  jpa-service-provider
+  ? jpa-impl (some better name or delete this entirely since it's usefulness is questionable)
+  spi
+  test-data-factory
+  ```
+  I like this because ...
+  - I can see the project structure from the root without having to navigate deeper directories
+  - I can easily see that everything related to a relational data source is together and I can delete `jpa-*` if I don't need a RDBMS
+- Starterkit creates project with build warnings, e.g. Checkstyle

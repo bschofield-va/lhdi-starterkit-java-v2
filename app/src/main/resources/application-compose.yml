@@ -14,6 +14,20 @@ spring:
   kafka:
     bootstrap-servers: "kafka:9092"
 
+provider: mpi
+mpi:
+  ssl-enabled: false
+  url: "http://mock-mpi:9090/psim_webservice/IdMWebService"
+  wsdl-location: "http://mock-mpi:9090/psim_webservice/IdMWebService/idmWebService.wsdl"
+  keystore-path: "/opt/va/mock-mpi-client.keystore"
+  keystore-password: "password123"
+  key-alias: "mock-mpi-client"
+  truststore-path: "/opt/va/mock-mpi-client.truststore"
+  truststore-password: "password123"
+  user-id: LIGHTHOUSE
+  integration-process-id: 666LHSE
+  as-agent-id: 666LHSG
+
 opentracing:
   zipkin:
     enabled: true

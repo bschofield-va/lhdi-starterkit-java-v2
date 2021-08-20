@@ -8,6 +8,31 @@ volumes:
   pgdata:
 
 services:
+  mock-mpi:
+    image: vasdvp/lighthouse-mock-mpi:1.0.9
+    hostname: "mock-mpi"
+    expose:
+      - "9090"
+    ports:
+      - "9090:9090"
+    environment:
+      SSL_ENABLE_CLIENT: "false"
+      SSL_USE_TRUST_STORE: "false"
+      SECURITY_REQUIRE_SSL: "false"
+      SERVER_SSL_ENABLED: "false"
+      SERVER_SSL_KEY_STORE_TYPE: "JKS"
+      SERVER_SSL_KEY_STORE: "/opt/va/mock-mpi-server.keystore"
+      SERVER_SSL_KEY_STORE_PASSWORD: "password123"
+      SERVER_SSL_KEY_ALIAS: "mock-mpi-server"
+      PATIENT_VISTA_SITE_DETAILS: "/opt/va/vista-sites.json"
+    volumes:
+      - ${PWD}/app/src/docker/vista-sites.json:/opt/va/vista-sites.json
+      - ${PWD}/app/src/docker/mock-mpi-server.keystore:/opt/va/mock-mpi-server.keystore
+      - ${PWD}/app/src/docker/mock-mpi-server.truststore:/opt/va/mock-mpi-server.truststore
+    networks:
+      - internal
+      - external
+
   opa:
     image: openpolicyagent/opa
     hostname: opa
@@ -79,6 +104,9 @@ services:
       POSTGRES_USER: facilityvisit_service
       POSTGRES_PASSWORD: also-not-the-service-password
       JAVA_PROFILE: "-Dspring.profiles.include=compose"
+    volumes:
+      - ${PWD}/app/src/docker/mock-mpi-server.keystore:/opt/va/mock-mpi-client.keystore
+      - ${PWD}/app/src/docker/mock-mpi-server.truststore:/opt/va/mock-mpi-client.truststore
     depends_on:
       - postgres1
       - db-init
