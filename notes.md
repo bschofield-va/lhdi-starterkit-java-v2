@@ -1,5 +1,8 @@
 # Notes
 
+Project created using [create-project.sh](create-project.sh)
+Utility [fv](fv) to make manual testing a little more comfortable on the command line.
+
 ## Project creation
 - Initial creation of project did not compile and required manual clean up
 - Application does not start
@@ -21,7 +24,9 @@ This portion of _every_ gradle command is excruciating
 ```
 
 ## Refactor experience
-Field name changes very easy.
+First name change was done more manually through Intellij. It was fairly easy to do, just need to apply the (more or less) same refactor in a couple different spots. 
+
+Field name changes can be very easy:
 ```
 sed -i 's/lastName/visitedAt/g' $(git grep -l lastName)
 sed -i 's/LastName/VisitedAt/g' $(git grep -l LastName)
@@ -88,3 +93,8 @@ Any thoughts on enabling fluent style on Lombok generated classes?
   - I can see the project structure from the root without having to navigate deeper directories
   - I can easily see that everything related to a relational data source is together and I can delete `jpa-*` if I don't need a RDBMS
 - Starterkit creates project with build warnings, e.g. Checkstyle
+- Gatling doesn't work (Gradle error)
+- Missing command line niceties
+  - automatic formatting
+  - coverage report
+  - git branch name enforcement
